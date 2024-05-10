@@ -1,0 +1,884 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: main;
+    src: url('fonts/billie_eilish/billie\ eilish.ttf');
+}
+@font-face {
+    font-family: word;
+    src: url('fonts/roboto/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: giliams;
+    src: url('fonts/flaroper/FLAROPER.otf')
+}
+
+body {
+    margin: 0%;
+}
+
+.all-divs {
+    opacity: 0;
+    transition: 1s;
+    transform: translateY(13%);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media(prefers-reduced-motion) {
+    .all-divs {
+        transition: none;
+    }
+}
+.paragraphs:nth-child(2) {
+    transition-delay: 200ms;
+}
+.paragraphs:nth-child(3) {
+    transition-delay: 200ms;
+}
+.paragraphs:nth-child(4) {
+    transition-delay: 400ms;
+}
+
+
+
+/* ---------- */
+/*   navbar   */
+/* ---------- */
+
+nav {
+    background-color: transparent;
+    transition: background-color 0.4s ease;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2% 7%;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+}
+nav.scrolled {
+    background-color: #31291e7b;
+    backdrop-filter: blur(0px); 
+    -webkit-backdrop-filter: blur(6px);
+}
+
+nav p, .login {
+    font-family: main;
+    width: auto;
+    color: #fff;
+    font-size: 1.3em;
+    margin: auto 0;
+    letter-spacing: 1px;
+}
+.login {
+    background-color: transparent;
+    border: none;
+    padding: .1% 1.1%;
+    cursor: pointer;
+    text-align: right;
+}
+.login:hover {
+    background-color: #ffffff2c;
+    border-radius: 3px;
+}
+.logo {
+    text-align: left;
+}
+.login {
+    text-align: right;
+}
+
+nav ul {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    margin: auto 0;
+}
+
+a {
+    font-family: word;
+    font-size: .8em;
+    letter-spacing: 1px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-in;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+}
+
+.demo {
+    font-family: main;
+    width: auto;
+    color: #fff;
+    font-size: 1.3em;
+    margin: auto 0;
+    letter-spacing: 1px;
+    background-color: transparent;
+    border: none;
+    padding: .1% 1.1%;
+    cursor: pointer;
+    text-align: right;
+}
+.demo:hover {
+    background-color: #ffffff2c;
+    border-radius: 3px;
+}
+
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.bar { 
+    width: 25px;
+    height: 4px;
+    margin: 2.5px 0;
+    background-color: #fff;
+}
+
+
+
+/* ---------- */
+/*    home    */
+/* ---------- */
+
+.home {
+    background-image: url(pics/botanical\ library.jpg);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 140vh;
+    background-position: center;
+}
+
+.name p {
+    font-family: main;
+    color: #fff;
+    position: absolute;
+    text-shadow: 0px 5px 5px #000;
+    transform: scale(1);
+}
+
+.the {
+    font-size: 5vh;
+    top: 26%;
+    left: 22%;
+}
+.botanical {
+    font-size: 23vh;
+    top: 26%;
+    left: 25%;
+}
+
+.library {
+    font-size: 23vh;
+    top: 46%;
+    left: 42%;
+}
+
+.name.active {
+    transform: scale(0);
+}
+
+.sub-title {
+    font-family: word;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: 2.5vh;
+    position: relative;
+    width: 60%;
+    text-align: center;
+    top: 72%;
+    left: 20%;
+    text-shadow: 0px 2px 2px #000;
+}
+
+.form-box {
+    width: 400px;
+    height: 400px;
+    margin: 10% auto;
+    padding: 2% 3%;
+    border-radius: 20px;
+    box-shadow: 0px 3px 10px #000;
+    display: block;
+    transform: scale(0);
+    transition: .8s ease;
+    background-color: #ffffff1c;
+}
+.form-box.active-popup {
+    transform: scale(1);
+}
+
+.login-form {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+.login-form.active {
+    display: none;
+}
+
+.register-form {
+    display: none;
+    width: 100%;
+    margin: 0 auto;
+}
+.register-form.active {
+    display: block;
+    transition: .18s ease;
+}
+
+.login-word, .register-word {
+    font-family: word;
+    font-size: 2em;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0px 2px 2px #000;
+}
+
+.register-question, .register-link, .login-question, .login-link {
+    font-family: word;
+    text-align: center;
+    letter-spacing: .5px;
+    color: #fff;
+    font-size: .8em;
+    text-shadow: 0px 2px 2px #000;
+    padding-top: 2%;
+}
+.register-link, .login-link {
+    font-size: 1em;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    transition: .5s;
+    flex-wrap: wrap;
+    margin: 10% auto 0%;
+}
+
+.input {
+    font-size: .95em;
+    color: #31291e;
+    background-color: #ffffffb6;
+    outline: none;
+    font-family: word;
+    border: none;
+    border-radius: 5px;
+    width: 85%;
+    padding: 3%;
+    margin-bottom: 5%;
+    box-shadow: 0px 2px 2px #000;
+}
+#icon, #close {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 30px;
+    width: 5%;
+    margin: 0 auto;
+    text-shadow: 0px 2px 2px #000;
+    cursor: pointer;
+}
+
+#close {
+    text-align: right;
+    width: 100%;
+    text-shadow: none;
+}
+
+.submit-btn {
+    font-size: .8em;
+    color: #fff;
+    background-color: #757E44;
+    font-family: word;
+    width: 100%;
+    padding: 4%;
+    margin: 2% auto;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px #000;
+}
+.submit-btn:hover {
+    background-color: #596033;
+}
+
+
+
+/* ---------- */
+/*   about    */
+/* ---------- */
+
+.about {
+    background-color: #31291e;
+    padding: 5% 0%;
+}
+
+.title {
+    font-family: giliams;
+    letter-spacing: 1.5px;
+    color: #fff;
+    text-shadow: 0px 5px 5px #000;
+    font-size: 5.2em;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 1%;
+}
+.text {
+    font-family: word;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: .8em;
+    text-shadow: 0px 2px 2px #000;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+
+/* ---------- */
+/* plant rooms */
+/* ---------- */
+
+.plant-room {
+    display: flex;
+    width: 100%;
+}
+
+.background-one, .background-two {
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    background-position: center;
+}
+.background-one {
+    background-image: url('pics/plant\ room\ 1.jpg');
+}
+.background-two {
+    background-image: url('pics/plant\ room\ 2.jpg');
+}
+
+
+
+/* ---------- */
+/*   welcome  */
+/* ---------- */
+
+.welcome {
+    background-color: #615B43;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 5% 0%;
+}
+
+.info-div {
+    display: block;
+    text-align: center;
+    width: 44%;
+    justify-content: space-between;
+}
+.info-div div {
+    width: 80%;
+    margin: 0 auto;
+    padding: 6% 0%;
+}
+
+.info-title {
+    font-family: giliams;
+    letter-spacing: 1.5px;
+    color: #fff;
+    font-size: 4em;
+    text-shadow: 0px 5px 5px #000;
+    margin-bottom: 3%;
+}
+.info-text {
+    font-family: word;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: .9em;
+    text-shadow: 0px 2px 2px #000;
+    line-height: 1.5;
+}
+
+.image {
+    width: 44%;
+    text-align: center;
+    display: flex;
+}
+.image img {
+    width: 95%;
+    margin: auto;
+}
+
+.welcome2 {
+    background-color: #31291e;
+}
+
+
+
+/* ---------- */
+/* plant photos  */
+/* ---------- */
+
+.plant-photos {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.plant-photos div {
+    height: 25vh;
+    width: 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.photo-1 {
+    background-image: url('pics/tree\ bark.jpg');
+}
+.photo-2 {
+    background-image: url('pics/flowers\ in\ water.jpg');
+}
+.photo-3 {
+    background-image: url('pics/fall\ lily\ pad.jpg');
+}
+.photo-4 {
+    background-image: url('pics/plant\ window.jpg');
+}
+.photo-5 {
+    background-image: url('pics/green\ swirl.jpg');
+}
+
+
+
+/* ---------- */
+/*   contact  */
+/* ---------- */
+
+.contact {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.c-1 {
+    display: block;
+    width: 43%;
+    background-color: #615B43;
+    text-align: center;
+    padding: 5% 0%;
+    margin: 0 auto;
+}
+.email-phone {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 5%;
+}
+#icons {
+    color: #fff;
+    font-size: 2.3em;
+    width: 30%;
+    text-align: right;
+}
+.c-text {
+    font-family: word;
+    font-size: .9em;
+    width: 70%;
+    letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 0px 2px 2px #000;
+    line-height: 2;
+    text-align: left;
+}
+.c-title {
+    margin-bottom: 0.5%;
+}
+.plant-notes {
+    width: 50%;
+    text-align: center;
+}
+
+.c-2 {
+    width: 57%;
+    background-color: #757E44;
+    padding: 5% 3%;
+    text-align: center;
+    margin: 0 auto;
+}
+.c-2 form {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 3%;
+}
+.c-input, .c-message, .c-submit {
+    width: 100%;
+    font-family: word;
+    background-color: #ffffff2c;
+    color: #fff;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: .8em;
+    margin: 2.3% auto;
+    font-size: .9em;
+    border-radius: 2px;
+}
+.c-submit:hover {
+    cursor: pointer;
+    background-color: #596033;
+}
+.c-input:hover, .c-message:hover {
+    background-color: #59603331;
+}
+
+
+
+/* ---------- */
+/*   footer   */
+/* ---------- */
+
+footer {
+    display: flex;
+    background-image: url(pics/woods\ footer.jpg);
+    height: 30vh;
+    width: 100%;
+}
+
+.f-background {
+    background-color: #31291e9e;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 3% 0%;
+}
+.f-1 {
+    width: 20%;
+}
+.f-1 div {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1%;
+}
+.f-1 div img {
+    width: 15%;
+    transition: transform 0.3s ease;
+    transform: translateY(-10px);
+}
+.f-1 div img:hover {
+    transform: translateY(-16px);
+}
+.f-1 div p {
+    font-family: main;
+    color: #fff;
+    font-size: 1.3em;
+    margin: auto;
+    text-align: left;
+    letter-spacing: 1px;
+    text-shadow: 0px 5px 5px #000;
+}
+
+.f-title {
+    font-family: giliams;
+    letter-spacing: 1.5px;
+    color: #fff;
+    font-size: 1.4em;
+    text-shadow: 0px 5px 5px #000;
+    margin-bottom: 8%;
+}
+.f-text {
+    font-family: word;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: .6em;
+    text-shadow: 0px 2px 2px #000;
+    width: 100%;
+    text-align: left;
+    margin: 0 auto;
+    line-height: 2;
+}
+
+
+
+/* ---------- */
+/* responsive */
+/* ---------- */
+
+@media screen and (max-width: 900px) {
+    nav {
+        padding: 3% 7%;
+    }
+    .the {
+        left: 15%;
+    }
+    .botanical {
+        left: 17%;
+    }
+    
+    .library {
+        left: 35%;
+    }
+    .welcome {
+        display: block;
+    }
+    .info-div {
+        width: 100%;
+    }
+    .image {
+        width: 100%;
+        padding: 3% 0%;
+    }
+    .image img {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .the {
+        font-size: 4vh;
+        top: 28%;
+        left: 15%;
+    }
+    .botanical {
+        font-size: 20vh;
+        top: 28%;
+        left: 17%;
+    }
+    
+    .library {
+        font-size: 20vh;
+        top: 46%;
+        left: 35%;
+    }
+    .plant-room {
+        display: block;
+    }
+    .background-one, .background-two {
+        width: 100%;
+        height: 60vh;
+    }
+    .contact {
+        display: block;
+    }
+    .c-1, .c-2 {
+        width: 100%;
+    }
+    .c-1 {
+        display: flex;
+        width: 100%;
+        padding: 5% 10%;
+        justify-content: space-evenly;
+    }
+    .plant-notes {
+        width: 30%;
+    }
+    .email-phone {
+        width: 70%;
+    }
+    .f-1 div img {
+        width: 25%;
+    }
+    .f-background {
+        padding: 5% 0%;
+    }
+    .f-1 div {
+        margin-bottom: 0%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .the {
+        font-size: 4vh;
+        top: 28%;
+        left: 7%;
+    }
+    .botanical {
+        font-size: 20vh;
+        top: 28%;
+        left: 9%;
+    }
+    
+    .library {
+        font-size: 20vh;
+        top: 46%;
+        left: 27%;
+    }
+    .plant-photos div {
+        height: 20vh;
+    }
+}
+
+@media screen and (max-width: 574px) {
+    .the {
+        font-size: 3vh;
+        top: 28%;
+    }
+    .botanical {
+        font-size: 16vh;
+        top: 28%;
+    }
+    
+    .library {
+        font-size: 16vh;
+        top: 42%;
+    }
+    .sub-title {
+        top: 68%;
+        font-size: 2vh;
+    }
+    .c-1, .c-2 {
+        display: block;
+        padding: 8% 0%;
+    }
+    .plant-notes {
+        width: 40%;
+    }
+    .email-phone {
+        width: 100%;
+    }
+    .f-1 div img {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 465px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 7% 7%;
+    }
+    .login, .nav-links, .demo {
+        display: none;
+    }
+    nav p {
+        width: 100%;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .nav-links.active, .login.active, .demo.active {
+        display: block;
+        text-align: center;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 1%;
+        line-height: 2;
+    }
+    .demo.active {
+        margin-top: 0%;
+    }
+    .the {
+        font-size: 3vh;
+        top: 34%;
+        left: 11%;
+    }
+    .botanical {
+        font-size: 11vh;
+        top: 35%;
+        left: 14%;
+    }
+    
+    .library {
+        font-size: 11vh;
+        top: 45%;
+        left: 34%;
+    }
+    .title {
+        font-size: 4.5em;
+    }
+    .text {
+        font-size: .75em;
+    }
+    .form-box {
+        width: 86%;
+        height: 390px;
+    }
+    #icon {
+        font-size: 25px;
+    }
+    .plant-photos div {
+        width: 50%;
+        height: 20vh;
+    }
+    .photo-5 {
+        display: none;
+    }
+    footer {
+        height: 55vh;
+    }
+    .f-background {
+        display: block;
+        margin: 0 auto;
+    }
+    .f-1, .f-2, .f-3 {
+        margin: 0% auto 7%;
+        width: 60%;
+        text-align: center;
+    }
+    .f-title {
+        margin-bottom: 2%;
+    }
+    .f-1 div img {
+        width: 18%;
+    }
+    .f-text {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .the {
+        left: 7%;
+    }
+    .botanical {
+        left: 8%;
+    }
+    
+    .library {
+        left: 28%;
+    }
+    .f-1, .f-2, .f-3 {
+        width: 80%;
+    }
+}

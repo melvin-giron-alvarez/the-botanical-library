@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="botanical library" />
+    <title>Botanical Library</title>
+    <link href="plantbase.css" rel="stylesheet" />
+    <link rel="icon" href="pics/BL icon w: shadow.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <section class="home">
+      <div class="user-logout">
+        <p id="display-username"></p>
+        <p id="logout-button">Log out</p>
+      </div>
+      <div class="type-something">
+        <p class="font1">Search using a keyword down below</p>
+        <form id="search-form">
+          <input type="text" id="search-input" placeholder="ex: sugar" />
+          <button type="submit" id="search-btn">Search</button>
+        </form>
+        <ul id="search-results"></ul>
+      </div>
+    </section>
+
+    <section class="items">
+      <div id="items"></div>
+      <div class="plant-details">
+        <i class="material-symbols-outlined" id="close-info">close</i>
+        <div class="description"></div>
+      </div>
+    </section>
+    <script type="module" src="config.js"></script>
+    <script src="plantbase.js"></script>
+  </body>
+</html>
